@@ -33,9 +33,9 @@
 "=================================================================================
 " SEADRAGON TERMINAL:
 "=================================================================================
-"     Foreground    #afa89e             |      Selection     #9eee00             |
+"     Foreground    #b7d2da             |      Selection     #9eee00             |
 "     Background    #001226             |      Selected Text #001226             |
-"     Bold          #fff8ee             |                                        |
+"     Bold          #d6f5ff             |                                        |
 "     Links         #0044e4             |                                        |
 "     CursorColor   #00ee76             |                                        |
 "     CursorText    #001226             |                                        |
@@ -52,7 +52,7 @@
 "   Blue       #00309e   4       25     |   brBlue      #0044e4   12      27     |
 "   Magenta    #3a0876   5       55     |   brMagenta   #5f12bb   13      57     |
 "   Cyan       #4e94af   6       67     |   brCyan      #76d7ff   14      117    |
-"   White      #afa89e   7       144    |   brWhite     #fff8ee   15      231    |
+"   White      #b7d2da   7       189    |   brWhite     #d6f5ff   15      195    |
 "---------------------------------------|-----------------------------------------
 "=================================================================================
 
@@ -131,16 +131,16 @@ highlight! SpellLocal             guifg=#00309e  guibg=NONE     gui=undercurl  c
 highlight! SpellCap               guifg=#76d7ff  guibg=NONE     gui=undercurl  ctermfg=117    ctermbg=NONE  cterm=undercurl
 highlight! SpellRare              guifg=#9eee00  guibg=NONE     gui=undercurl  ctermfg=154    ctermbg=NONE  cterm=undercurl
 
-highlight! Normal               guifg=#afa89e  guibg=NONE     gui=NONE     ctermfg=144   ctermbg=NONE  cterm=NONE
+highlight! Normal               guifg=#b7d2da  guibg=NONE     gui=NONE     ctermfg=189   ctermbg=NONE  cterm=NONE
 highlight! TabLineFill          guifg=NONE     guibg=#001226  gui=NONE     ctermfg=NONE  ctermbg=234   cterm=NONE
 
 highlight! CursorLine           guifg=NONE     guibg=#001226  gui=NONE     ctermfg=NONE  ctermbg=234   cterm=NONE
 highlight! CursorColumn         guifg=NONE     guibg=#001226  gui=NONE     ctermfg=NONE  ctermbg=234   cterm=NONE
 highlight! ColorColumn          guifg=NONE     guibg=#001226  gui=NONE     ctermfg=NONE  ctermbg=234   cterm=NONE
 
-highlight! StatusLine           guifg=#e4d7bb  guibg=#001226  gui=NONE     ctermfg=229   ctermbg=234   cterm=NONE
-highlight! TabLineSel           guifg=#e4d7bb  guibg=#001226  gui=NONE     ctermfg=229   ctermbg=234   cterm=NONE
-highlight! PmenuSel             guifg=#e4d7bb  guibg=#001226  gui=NONE     ctermfg=229   ctermbg=234   cterm=NONE
+highlight! StatusLine           guifg=#d6f5ff  guibg=#001226  gui=NONE     ctermfg=195   ctermbg=234   cterm=NONE
+highlight! TabLineSel           guifg=#d6f5ff  guibg=#001226  gui=NONE     ctermfg=195   ctermbg=234   cterm=NONE
+highlight! PmenuSel             guifg=#d6f5ff  guibg=#001226  gui=NONE     ctermfg=195   ctermbg=234   cterm=NONE
 
 highlight! StatusLineNC         guifg=#3a6c7f  guibg=#001226  gui=NONE     ctermfg=60    ctermbg=234   cterm=NONE
 highlight! VertSplit            guifg=#3a6c7f  guibg=#001226  gui=NONE     ctermfg=60    ctermbg=234   cterm=NONE

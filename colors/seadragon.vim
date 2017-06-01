@@ -69,88 +69,130 @@ endif
 
 let g:colors_name="seadragon"
 
+let s:colors = {
+  \ "black": {"gui": "#001226", "cterm": "234"},
+  \ "red": {"gui": "#9e129e", "cterm": "90"},
+  \ "green": {"gui": "#009e4e", "cterm": "29"},
+  \ "yellow": {"gui": "#6c9e00", "cterm": "64"},
+  \ "blue": {"gui": "#00309e", "cterm": "25"},
+  \ "magenta": {"gui": "#3a0876", "cterm": "55"},
+  \ "cyan": {"gui": "#5fafd7", "cterm": "74"},
+  \ "white": {"gui": "#b7d7e4", "cterm": "189"},
+  \ "br_black": {"gui": "#3a6c7f", "cterm": "60"},
+  \ "br_red": {"gui": "#e41ce4", "cterm": "201"},
+  \ "br_green": {"gui": "#00ee76", "cterm": "48"},
+  \ "br_yellow": {"gui": "#9eee00", "cterm": "154"},
+  \ "br_blue": {"gui": "#0044e4", "cterm": "27"},
+  \ "br_magenta": {"gui": "#5f12bb", "cterm": "57"},
+  \ "br_cyan": {"gui": "#76d7ff", "cterm": "117"},
+  \ "br_white": {"gui": "#d7f8ff", "cterm": "195"},
+  \}
+
+function! s:highlight(group, style)
+  execute "highlight" a:group
+    \ "guifg=" (has_key(a:style, "fg") ? a:style.fg.gui : "NONE")
+    \ "guibg=" (has_key(a:style, "bg") ? a:style.bg.gui : "NONE")
+    \ "guisp=" (has_key(a:style, "sp") ? a:style.sp.gui : "NONE")
+    \ "gui=" (has_key(a:style, "gui") ? a:style.gui : "NONE")
+    \ "ctermfg=" (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+    \ "ctermbg=" (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
+    \ "cterm=" (has_key(a:style, "cterm") ? a:style.cterm : "NONE")
+endfunction
+
 "================================================================================
 " SEADRAGON HIGHLIGHTING:
 "================================================================================
 
-highlight! PreProc                guifg=#0044e4  guibg=NONE     gui=NONE       ctermfg=27     ctermbg=NONE  cterm=NONE
-highlight! Title                  guifg=#0044e4  guibg=NONE     gui=NONE       ctermfg=27     ctermbg=NONE  cterm=NONE
-highlight! htmlItalic             guifg=#0044e4  guibg=NONE     gui=NONE       ctermfg=27     ctermbg=NONE  cterm=NONE
-highlight! Statement              guifg=#0044e4  guibg=NONE     gui=NONE       ctermfg=27     ctermbg=NONE  cterm=NONE
+call s:highlight("IncSearch", {"fg": s:colors.black, "bg": s:colors.green})  " `incsearch` highlighting
+call s:highlight("MoreMsg", {"fg": s:colors.green})  " More prompt
+call s:highlight("SpecialChar", {"fg": s:colors.green})  " Special character in a constant
 
-highlight! FoldColumn             guifg=#5fafd7  guibg=NONE     gui=NONE       ctermfg=74     ctermbg=NONE  cterm=NONE
-highlight! DiffText               guifg=#5fafd7  guibg=NONE     gui=NONE       ctermfg=74     ctermbg=NONE  cterm=NONE
+call s:highlight("Directory", {"fg": s:colors.blue})  " Directory names
+call s:highlight("ModeMsg", {"fg": s:colors.blue})  " `showmode` message (e.g. `-- INSERT --`)
 
-highlight! ModeMsg                guifg=#00309e  guibg=NONE     gui=NONE       ctermfg=25     ctermbg=NONE  cterm=NONE
-highlight! Directory              guifg=#00309e  guibg=NONE     gui=NONE       ctermfg=25     ctermbg=NONE  cterm=NONE
+call s:highlight("Noise", {"fg": s:colors.magenta})  " Less important syntax elements (e.g. {, }, ;, etc)
 
-highlight! Function               guifg=#76d7ff  guibg=NONE     gui=NONE       ctermfg=117    ctermbg=NONE  cterm=NONE
-highlight! Identifier             guifg=#76d7ff  guibg=NONE     gui=NONE       ctermfg=117    ctermbg=NONE  cterm=NONE
-highlight! Type                   guifg=#e41ce4  guibg=NONE     gui=NONE       ctermfg=201    ctermbg=NONE  cterm=NONE
+call s:highlight("FoldColumn", {"fg": s:colors.cyan})  " Fold column
+call s:highlight("NonText", {"fg": s:colors.cyan})  " `~`, `@` at end of window, `showbreak`, etc
+call s:highlight("SpecialKey", {"fg": s:colors.br_black, "bg": s:colors.cyan})  " Text displayed different from actual code (e.g. metas)
 
-highlight! Quote                  guifg=#9eee00  guibg=NONE     gui=NONE       ctermfg=154    ctermbg=NONE  cterm=NONE
-highlight! Operator               guifg=#9eee00  guibg=NONE     gui=NONE       ctermfg=154    ctermbg=NONE  cterm=NONE
-highlight! Symbol                 guifg=#9eee00  guibg=NONE     gui=NONE       ctermfg=154    ctermbg=NONE  cterm=NONE
+call s:highlight("Normal", {"fg": s:colors.white})  " Normal text
 
-highlight! Constant               guifg=#00ee76  guibg=NONE     gui=NONE       ctermfg=48     ctermbg=NONE  cterm=NONE
-highlight! String                 guifg=#00ee76  guibg=NONE     gui=NONE       ctermfg=48     ctermbg=NONE  cterm=NONE
-highlight! netrwExe               guifg=#00ee76  guibg=NONE     gui=NONE       ctermfg=48     ctermbg=NONE  cterm=NONE
+call s:highlight("Comment", {"fg": s:colors.br_black})  " Comment
+call s:highlight("Folded", {"fg": s:colors.br_black})  " Closed fold
+call s:highlight("LineNr", {"fg": s:colors.br_black, "bg": s:colors.black})  " Line numbers
+call s:highlight("VertSplit", {"fg": s:colors.br_black, "bg": s:colors.black})  " Vertical split
 
-highlight! htmlArg                guifg=#5f12bb  guibg=NONE     gui=NONE       ctermfg=57     ctermbg=NONE  cterm=NONE
-highlight! netrwList              guifg=#5f12bb  guibg=NONE     gui=NONE       ctermfg=57     ctermbg=NONE  cterm=NONE
-highlight! Noise                  guifg=#3a0876  guibg=NONE     gui=NONE       ctermfg=55     ctermbg=NONE  cterm=NONE
+call s:highlight("Type", {"fg": s:colors.br_red})  " Variable type (e.g. int, long, char, etc)
+call s:highlight("Error", {"fg": s:colors.br_red})  " Any erroneous construct
+call s:highlight("ErrorMsg", {"fg": s:colors.br_red})  " Error messages
+call s:highlight("Exception", {"fg": s:colors.br_red})  " try, catch, throw, etc
+call s:highlight("Statement", {"fg": s:colors.br_red})  " Any statement
 
-highlight! Search                 guifg=#76d7ff  guibg=#3a6c7f  gui=reverse    ctermfg=117    ctermbg=60    cterm=reverse
-highlight! MatchParen             guifg=#76d7ff  guibg=#3a6c7f  gui=reverse    ctermfg=117    ctermbg=60    cterm=reverse
-highlight! WildMenu               guifg=#76d7ff  guibg=#3a6c7f  gui=reverse    ctermfg=117    ctermbg=60    cterm=reverse
+call s:highlight("Visual", {"fg": s:colors.black, "bg": s:colors.br_green})  " Visual selection
+call s:highlight("Constant", {"fg": s:colors.br_green})  " Any constant
+call s:highlight("String", {"fg": s:colors.br_green})  " Any string constant
 
-highlight! Special                guifg=#009e4e  guibg=NONE     gui=NONE       ctermfg=29     ctermbg=NONE  cterm=NONE
-highlight! Question               guifg=#009e3e  guibg=NONE     gui=NONE       ctermfg=29     ctermbg=NONE  cterm=NONE
-highlight! Underlined             guifg=#009e3e  guibg=NONE     gui=NONE       ctermfg=29     ctermbg=NONE  cterm=NONE
-highlight! MoreMsg                guifg=#009e3e  guibg=NONE     gui=NONE       ctermfg=29     ctermbg=NONE  cterm=NONE
+call s:highlight("Quote", {"fg": s:colors.br_yellow})
+call s:highlight("Operator", {"fg": s:colors.br_yellow})  " +, *, etc
+call s:highlight("SpecialComment", {"fg": s:colors.br_yellow, "bg": s:colors.black})  " Special elements within comments
+call s:highlight("Symbol", {"fg": s:colors.br_yellow})
+call s:highlight("Todo", {"fg": s:colors.br_black, "bg": s:colors.br_yellow}) " TODO comments
+call s:highlight("WarningMsg", {"fg": s:colors.br_yellow})  " Warning messages
 
-highlight! WarningMsg             guifg=#9eee00  guibg=NONE     gui=NONE       ctermfg=154    ctermbg=NONE  cterm=NONE
-highlight! ErrorMsg               guifg=#e41ce4  guibg=NONE     gui=NONE       ctermfg=201    ctermbg=NONE  cterm=NONE
-highlight! Error                  guifg=#e41ce4  guibg=NONE     gui=reverse    ctermfg=201    ctermbg=NONE  cterm=reverse
+call s:highlight("PreProc", {"fg": s:colors.br_blue})  " Generic preprocessor
+call s:highlight("Title", {"fg": s:colors.br_blue})  " Titles for output from `:set all`, `:autocmd`, etc
 
-highlight! SignColumn             guifg=#76d7ff  guibg=NONE     gui=NONE       ctermfg=117    ctermbg=NONE  cterm=NONE
-highlight! Visual                 guifg=#001226  guibg=#00ee76  gui=NONE       ctermfg=234    ctermbg=48    cterm=NONE
-highlight! Todo                   guifg=#001226  guibg=#e41ce4  gui=NONE       ctermfg=234    ctermbg=201   cterm=NONE
-highlight! DiffAdd                guifg=#00ee76  guibg=NONE     gui=reverse    ctermfg=48     ctermbg=NONE  cterm=reverse
-highlight! DiffDelete             guifg=#9e129e  guibg=NONE     gui=reverse    ctermfg=90     ctermbg=NONE  cterm=reverse
+call s:highlight("Special", {"fg": s:colors.br_magenta})  " Any special symbol
 
-highlight! SpecialComment         guifg=#3a6c7f  guibg=NONE     gui=reverse    ctermfg=60     ctermbg=NONE  cterm=reverse
-highlight! CursorLineNr           guifg=#3a6c7f  guibg=NONE     gui=reverse    ctermfg=60     ctermbg=NONE  cterm=reverse
-highlight! VimCommentTitle        guifg=#3a6c7f  guibg=NONE     gui=reverse    ctermfg=60     ctermbg=NONE  cterm=reverse
-highlight! DiffChange             guifg=#3a6c7f  guibg=NONE     gui=reverse    ctermfg=60     ctermbg=NONE  cterm=reverse
+call s:highlight("Function", {"fg": s:colors.br_cyan})  " Function name
+call s:highlight("Identifier", {"fg": s:colors.br_cyan})  " Variable name
+call s:highlight("MatchParen", {"fg": s:colors.br_black, "bg": s:colors.br_cyan})  " Matched parenthesis
+call s:highlight("Question", {"fg": s:colors.br_cyan})  " Enter prompt and yes/no questions
+call s:highlight("Search", {"fg": s:colors.br_black, "bg": s:colors.br_cyan})  " Search highlighting
+call s:highlight("SignColumn", {"fg": s:colors.br_cyan})  " Column where signs are displayed
+call s:highlight("Underlined", {"fg": s:colors.br_cyan, "gui": "underline", "cterm": "underline"})  " Text that stands out, HTML links
+call s:highlight("WildMenu", {"fg": s:colors.br_black, "bg": s:colors.br_cyan})  " Current match in `wildmenu`
 
-highlight! SpellBad               guifg=#e41ce4  guibg=NONE     gui=undercurl  ctermfg=234    ctermbg=NONE  cterm=undercurl
-highlight! SpellLocal             guifg=#00309e  guibg=NONE     gui=undercurl  ctermfg=25     ctermbg=NONE  cterm=undercurl
-highlight! SpellCap               guifg=#76d7ff  guibg=NONE     gui=undercurl  ctermfg=117    ctermbg=NONE  cterm=undercurl
-highlight! SpellRare              guifg=#9eee00  guibg=NONE     gui=undercurl  ctermfg=154    ctermbg=NONE  cterm=undercurl
+call s:highlight("VimCommentTitle", {"fg": s:colors.br_white, "bg": s:colors.black})  " Title elemnts within comments
 
-highlight! Normal                 guifg=#b7d7e4  guibg=NONE     gui=NONE       ctermfg=189   ctermbg=NONE   cterm=NONE
-highlight! TabLineFill            guifg=NONE     guibg=#001226  gui=NONE       ctermfg=NONE  ctermbg=234    cterm=NONE
+" Cursor
+call s:highlight("ColorColumn", {"bg": s:colors.black})  " `colorcolumn`
+call s:highlight("CursorColumn", {"bg": s:colors.black})  " Column cursor is on when `cursorcolumn` is set
+call s:highlight("CursorLine", {"bg": s:colors.black})  " Line the current cursor is on
+call s:highlight("CursorLineNr", {"bg": s:colors.br_black})  " Line number the current cursor is on
 
-highlight! CursorLine             guifg=NONE     guibg=#001226  gui=NONE       ctermfg=NONE  ctermbg=234    cterm=NONE
-highlight! CursorColumn           guifg=NONE     guibg=#001226  gui=NONE       ctermfg=NONE  ctermbg=234    cterm=NONE
-highlight! ColorColumn            guifg=NONE     guibg=#001226  gui=NONE       ctermfg=NONE  ctermbg=234    cterm=NONE
+" Diff
+call s:highlight("DiffAdd", {"bg": s:colors.green})  " Added line
+call s:highlight("DiffChange", {"bg": s:colors.cyan})  " Changed line
+call s:highlight("DiffDelete", {"bg": s:colors.red})  " Deleted line
+call s:highlight("DiffText", {"fg": s:colors.cyan, "bg": s:colors.br_black})  " Changed text within a changed line
 
-highlight! StatusLine             guifg=#d7f8ff  guibg=#001226  gui=NONE       ctermfg=195   ctermbg=234    cterm=NONE
-highlight! TabLineSel             guifg=#d7f8ff  guibg=#001226  gui=NONE       ctermfg=195   ctermbg=234    cterm=NONE
-highlight! PmenuSel               guifg=#d7f8ff  guibg=#001226  gui=NONE       ctermfg=195   ctermbg=234    cterm=NONE
+" HTML
+call s:highlight("htmlArg", {"fg": s:colors.br_magenta})
+call s:highlight("htmlItalic", {"fg": s:colors.br_blue})
 
-highlight! StatusLineNC           guifg=#3a6c7f  guibg=#001226  gui=NONE       ctermfg=60    ctermbg=234    cterm=NONE
-highlight! VertSplit              guifg=#3a6c7f  guibg=#001226  gui=NONE       ctermfg=60    ctermbg=234    cterm=NONE
-highlight! TabLine                guifg=#3a6c7f  guibg=#001226  gui=NONE       ctermfg=60    ctermbg=234    cterm=NONE
-highlight! Pmenu                  guifg=#3a6c7f  guibg=#001226  gui=NONE       ctermfg=60    ctermbg=234    cterm=NONE
-highlight! LineNr                 guifg=#3a6c7f  guibg=#001226  gui=NONE       ctermfg=60    ctermbg=234    cterm=NONE
+" netrw
+call s:highlight("netrwExe", {"fg": s:colors.br_blue})
+call s:highlight("netrwList", {"fg": s:colors.br_magenta})
 
-highlight! NonText                guifg=#4494af  guibg=NONE     gui=NONE       ctermfg=74    ctermbg=NONE   cterm=NONE
-highlight! SpecialKey             guifg=#4494af  guibg=NONE     gui=NONE       ctermfg=74    ctermbg=NONE   cterm=NONE
+" Popup menu
+call s:highlight("Pmenu", {"fg": s:colors.br_black, "bg": s:colors.black})  " Normal item
+call s:highlight("PmenuSbar", {"fg": s:colors.black, "bg": s:colors.br_black})  " Scrollbar
+call s:highlight("PmenuSel", {"fg": s:colors.br_cyan, "bg": s:colors.black})  " Selected item
+call s:highlight("PmenuThumb", {"fg": s:colors.white, "bg": s:colors.br_black})  " Thumb of scrollbar
 
-highlight! PmenuSbar              guifg=#001226  guibg=#001226  gui=NONE       ctermfg=234   ctermbg=234    cterm=NONE
-highlight! PmenuThumb             guifg=#001226  guibg=#001226  gui=NONE       ctermfg=234   ctermbg=234    cterm=NONE
+" Spellchecker
+call s:highlight("SpellBad", {"fg": s:colors.red, "gui": "undercurl", "cterm": "undercurl"})  " Unrecognized word
+call s:highlight("SpellCap", {"fg": s:colors.cyan, "gui": "undercurl", "cterm": "undercurl"})  " Word that should start with a capital
+call s:highlight("SpellLocal", {"fg": s:colors.green, "gui": "undercurl", "cterm": "undercurl"})  " Recognized word, used in other region
+call s:highlight("SpellRare", {"fg": s:colors.yellow, "gui": "undercurl", "cterm": "undercurl"})  " Recognized word, rarely used
 
-highlight! Comment                guifg=#3a6c7f  guibg=NONE     gui=NONE       ctermfg=60    ctermbg=NONE   cterm=NONE
-highlight! Folded                 guifg=#3a6c7f  guibg=NONE     gui=NONE       ctermfg=60    ctermbg=NONE   cterm=NONE
+" StatusLine
+call s:highlight("StatusLine", {"fg": s:colors.br_white})  " Current window status line
+call s:highlight("StatusLineNC", {"fg": s:colors.br_black})  " Non-current window status line
+
+" Tab
+call s:highlight("TabLine", {"fg": s:colors.br_black, "bg": s:colors.black})  " Tab pages line not active page label
+call s:highlight("TabLineFill", {"bg": s:colors.black})  " Tab pages line where there are no labels
+call s:highlight("TabLineSel", {"fg": s:colors.white, "bg": s:colors.black})  " Tab pages line active page label

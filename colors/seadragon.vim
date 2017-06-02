@@ -33,26 +33,26 @@
 "=================================================================================
 " SEADRAGON TERMINAL:
 "=================================================================================
-"     Foreground    #b7d7e4             |      Selection     #9eee00             |
-"     Background    #001226             |      Selected Text #001226             |
-"     Bold          #d7f8ff             |                                        |
-"     Links         #0044e4             |                                        |
-"     CursorColor   #00ee76             |                                        |
-"     CursorText    #001226             |                                        |
+"     Foreground    #d7d7ff             |      Selection     #afff00             |
+"     Background    #1c1c1c             |      Selected Text #1c1c1c             |
+"     Bold          #d7ffff             |                                        |
+"     Links         #005fff             |                                        |
+"     CursorColor   #00ff87             |                                        |
+"     CursorText    #1c1c1c             |                                        |
 "=================================================================================
 " ANSI COLORS:                                                                   |
 "=================================================================================
 "---------------------------------------|-----------------------------------------
 "   NORMAL     Hex       xterm   cterm  |   BRIGHT      Hex       xterm   cterm  |
 "---------------------------------------|-----------------------------------------
-"   Black      #001226   0       234    |   brBlack     #3a6c7f   8       60     |
-"   Red        #9e129e   1       90     |   brRed       #e41ce4   9       201    |
-"   Green      #009e4e   2       29     |   brGreen     #00ee76   10      48     |
-"   Yellow     #6c9e00   3       64     |   brYellow    #9eee00   11      154    |
-"   Blue       #00309e   4       25     |   brBlue      #0044e4   12      27     |
-"   Magenta    #3a0876   5       55     |   brMagenta   #5f12bb   13      57     |
-"   Cyan       #5fafd7   6       74     |   brCyan      #76d7ff   14      117    |
-"   White      #b7d7e4   7       189    |   brWhite     #d7f8ff   15      195    |
+"   Black      #1c1c1c   0       234    |   brBlack     #5f5f87   8       60     |
+"   Red        #870087   1       90     |   brRed       #ff00ff   9       201    |
+"   Green      #00875f   2       29     |   brGreen     #00ff87   10      48     |
+"   Yellow     #5f8700   3       64     |   brYellow    #afff00   11      154    |
+"   Blue       #005faf   4       25     |   brBlue      #005fff   12      27     |
+"   Magenta    #5f00af   5       55     |   brMagenta   #5f00ff   13      57     |
+"   Cyan       #5fafd7   6       74     |   brCyan      #5fd7ff   14      81     |
+"   White      #d7d7ff   7       189    |   brWhite     #d7ffff   15      195    |
 "---------------------------------------|-----------------------------------------
 "=================================================================================
 
@@ -70,22 +70,22 @@ endif
 let g:colors_name="seadragon"
 
 let s:colors = {
-  \ "black": {"gui": "#001226", "cterm": "234"},
-  \ "red": {"gui": "#9e129e", "cterm": "90"},
-  \ "green": {"gui": "#009e4e", "cterm": "29"},
-  \ "yellow": {"gui": "#6c9e00", "cterm": "64"},
-  \ "blue": {"gui": "#00309e", "cterm": "25"},
-  \ "magenta": {"gui": "#3a0876", "cterm": "55"},
+  \ "black": {"gui": "#1c1c1c", "cterm": "234"},
+  \ "red": {"gui": "#870087", "cterm": "90"},
+  \ "green": {"gui": "#00875f", "cterm": "29"},
+  \ "yellow": {"gui": "#5f8700", "cterm": "64"},
+  \ "blue": {"gui": "#005faf", "cterm": "25"},
+  \ "magenta": {"gui": "#5f00af", "cterm": "55"},
   \ "cyan": {"gui": "#5fafd7", "cterm": "74"},
-  \ "white": {"gui": "#b7d7e4", "cterm": "189"},
-  \ "br_black": {"gui": "#3a6c7f", "cterm": "60"},
-  \ "br_red": {"gui": "#e41ce4", "cterm": "201"},
-  \ "br_green": {"gui": "#00ee76", "cterm": "48"},
-  \ "br_yellow": {"gui": "#9eee00", "cterm": "154"},
-  \ "br_blue": {"gui": "#0044e4", "cterm": "27"},
-  \ "br_magenta": {"gui": "#5f12bb", "cterm": "57"},
-  \ "br_cyan": {"gui": "#76d7ff", "cterm": "117"},
-  \ "br_white": {"gui": "#d7f8ff", "cterm": "195"},
+  \ "white": {"gui": "#d7d7ff", "cterm": "189"},
+  \ "br_black": {"gui": "#5f5f87", "cterm": "60"},
+  \ "br_red": {"gui": "#ff00ff", "cterm": "201"},
+  \ "br_green": {"gui": "#00ff87", "cterm": "48"},
+  \ "br_yellow": {"gui": "#afff00", "cterm": "154"},
+  \ "br_blue": {"gui": "#005fff", "cterm": "27"},
+  \ "br_magenta": {"gui": "#5f00ff", "cterm": "57"},
+  \ "br_cyan": {"gui": "#5fd7ff", "cterm": "81"},
+  \ "br_white": {"gui": "#d7ffff", "cterm": "195"},
   \}
 
 function! s:highlight(group, style)

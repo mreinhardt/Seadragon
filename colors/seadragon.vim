@@ -88,6 +88,27 @@ let s:colors = {
   \ "br_white": {"gui": "#d7ffff", "cterm": "195"},
   \}
 
+if has("nvim")
+  let g:terminal_color_0 = s:colors.black.gui
+  let g:terminal_color_1 = s:colors.red.gui
+  let g:terminal_color_2 = s:colors.green.gui
+  let g:terminal_color_3 = s:colors.yellow.gui
+  let g:terminal_color_4 = s:colors.blue.gui
+  let g:terminal_color_5 = s:colors.magenta.gui
+  let g:terminal_color_6 = s:colors.cyan.gui
+  let g:terminal_color_7 = s:colors.white.gui
+  let g:terminal_color_8 = s:colors.br_black.gui
+  let g:terminal_color_9 = s:colors.br_red.gui
+  let g:terminal_color_10 = s:colors.br_green.gui
+  let g:terminal_color_11 = s:colors.br_yellow.gui
+  let g:terminal_color_12 = s:colors.br_blue.gui
+  let g:terminal_color_13 = s:colors.br_magenta.gui
+  let g:terminal_color_14 = s:colors.br_cyan.gui
+  let g:terminal_color_15 = s:colors.br_white.gui
+  " let g:terminal_color_background = g:terminal_color_0
+  let g:terminal_color_foreground = g:terminal_color_7
+endif
+
 function! s:highlight(group, style)
   execute "highlight" a:group
     \ "guifg=" (has_key(a:style, "fg") ? a:style.fg.gui : "NONE")

@@ -33,7 +33,7 @@
 "=================================================================================
 " SEADRAGON TERMINAL:
 "=================================================================================
-"     Foreground    #d7d7ff             |      Selection     #afff00             |
+"     Foreground    #d7d7ff             |      Selection     #d7ff00             |
 "     Background    #1c1c1c             |      Selected Text #1c1c1c             |
 "     Bold          #d7ffff             |                                        |
 "     Links         #005fff             |                                        |
@@ -46,11 +46,11 @@
 "   NORMAL     Hex       xterm   cterm  |   BRIGHT      Hex       xterm   cterm  |
 "---------------------------------------|-----------------------------------------
 "   Black      #1c1c1c   0       234    |   brBlack     #5f5f87   8       60     |
-"   Red        #870087   1       90     |   brRed       #ff00ff   9       201    |
+"   Red        #87005f   1       89     |   brRed       #ff00d7   9       200    |
 "   Green      #00875f   2       29     |   brGreen     #00ff87   10      48     |
-"   Yellow     #5f8700   3       64     |   brYellow    #afff00   11      154    |
+"   Yellow     #afd700   3       148    |   brYellow    #d7ff00   11      190    |
 "   Blue       #005faf   4       25     |   brBlue      #005fff   12      27     |
-"   Magenta    #5f00af   5       55     |   brMagenta   #5f00ff   13      57     |
+"   Magenta    #8700af   5       91     |   brMagenta   #8700ff   13      93     |
 "   Cyan       #5fafd7   6       74     |   brCyan      #5fd7ff   14      81     |
 "   White      #d7d7ff   7       189    |   brWhite     #d7ffff   15      195    |
 "---------------------------------------|-----------------------------------------
@@ -71,19 +71,19 @@ let g:colors_name="seadragon"
 
 let s:colors = {
   \ "black": {"gui": "#1c1c1c", "cterm": "234"},
-  \ "red": {"gui": "#870087", "cterm": "90"},
+  \ "red": {"gui": "#87005f", "cterm": "89"},
   \ "green": {"gui": "#00875f", "cterm": "29"},
-  \ "yellow": {"gui": "#5f8700", "cterm": "64"},
+  \ "yellow": {"gui": "#afd700", "cterm": "148"},
   \ "blue": {"gui": "#005faf", "cterm": "25"},
-  \ "magenta": {"gui": "#5f00af", "cterm": "55"},
+  \ "magenta": {"gui": "#8700af", "cterm": "91"},
   \ "cyan": {"gui": "#5fafd7", "cterm": "74"},
   \ "white": {"gui": "#d7d7ff", "cterm": "189"},
   \ "br_black": {"gui": "#5f5f87", "cterm": "60"},
-  \ "br_red": {"gui": "#ff00ff", "cterm": "201"},
+  \ "br_red": {"gui": "#ff00d7", "cterm": "200"},
   \ "br_green": {"gui": "#00ff87", "cterm": "48"},
-  \ "br_yellow": {"gui": "#afff00", "cterm": "154"},
+  \ "br_yellow": {"gui": "#d7ff00", "cterm": "190"},
   \ "br_blue": {"gui": "#005fff", "cterm": "27"},
-  \ "br_magenta": {"gui": "#5f00ff", "cterm": "57"},
+  \ "br_magenta": {"gui": "#8700ff", "cterm": "93"},
   \ "br_cyan": {"gui": "#5fd7ff", "cterm": "81"},
   \ "br_white": {"gui": "#d7ffff", "cterm": "195"},
   \}

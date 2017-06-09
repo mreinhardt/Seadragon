@@ -33,10 +33,10 @@
 "=================================================================================
 " SEADRAGON TERMINAL:
 "=================================================================================
-"     Foreground    #d7d7ff             |      Selection     #d7ff00             |
+"     Foreground    #afd7ff             |      Selection     #d7ff00             |
 "     Background    #1c1c1c             |      Selected Text #1c1c1c             |
 "     Bold          #d7ffff             |                                        |
-"     Links         #005fff             |                                        |
+"     Links         #5f87ff             |                                        |
 "     CursorColor   #00ff87             |                                        |
 "     CursorText    #1c1c1c             |                                        |
 "=================================================================================
@@ -46,13 +46,13 @@
 "   NORMAL     Hex       xterm   cterm  |   BRIGHT      Hex       xterm   cterm  |
 "---------------------------------------|-----------------------------------------
 "   Black      #1c1c1c   0       234    |   brBlack     #5f5f87   8       60     |
-"   Red        #87005f   1       89     |   brRed       #ff00d7   9       200    |
-"   Green      #00875f   2       29     |   brGreen     #00ff87   10      48     |
+"   Red        #af0087   1       126    |   brRed       #ff00d7   9       200    |
+"   Green      #00af5f   2       35     |   brGreen     #00ff87   10      48     |
 "   Yellow     #afd700   3       148    |   brYellow    #d7ff00   11      190    |
-"   Blue       #005faf   4       25     |   brBlue      #005fff   12      27     |
-"   Magenta    #8700af   5       91     |   brMagenta   #8700ff   13      93     |
+"   Blue       #005faf   4       25     |   brBlue      #5f87ff   12      69     |
+"   Magenta    #8700d7   5       92     |   brMagenta   #875fff   13      99     |
 "   Cyan       #5fafd7   6       74     |   brCyan      #5fd7ff   14      81     |
-"   White      #d7d7ff   7       189    |   brWhite     #d7ffff   15      195    |
+"   White      #afd7ff   7       153    |   brWhite     #d7ffff   15      195    |
 "---------------------------------------|-----------------------------------------
 "=================================================================================
 
@@ -71,19 +71,19 @@ let g:colors_name="seadragon"
 
 let s:colors = {
   \ "black": {"gui": "#1c1c1c", "cterm": "234"},
-  \ "red": {"gui": "#87005f", "cterm": "89"},
-  \ "green": {"gui": "#00875f", "cterm": "29"},
+  \ "red": {"gui": "#af0087", "cterm": "126"},
+  \ "green": {"gui": "#00af5f", "cterm": "35"},
   \ "yellow": {"gui": "#afd700", "cterm": "148"},
   \ "blue": {"gui": "#005faf", "cterm": "25"},
-  \ "magenta": {"gui": "#8700af", "cterm": "91"},
+  \ "magenta": {"gui": "#8700d7", "cterm": "92"},
   \ "cyan": {"gui": "#5fafd7", "cterm": "74"},
-  \ "white": {"gui": "#d7d7ff", "cterm": "189"},
+  \ "white": {"gui": "#afd7ff", "cterm": "153"},
   \ "br_black": {"gui": "#5f5f87", "cterm": "60"},
   \ "br_red": {"gui": "#ff00d7", "cterm": "200"},
   \ "br_green": {"gui": "#00ff87", "cterm": "48"},
   \ "br_yellow": {"gui": "#d7ff00", "cterm": "190"},
-  \ "br_blue": {"gui": "#005fff", "cterm": "27"},
-  \ "br_magenta": {"gui": "#8700ff", "cterm": "93"},
+  \ "br_blue": {"gui": "#5f87ff", "cterm": "69"},
+  \ "br_magenta": {"gui": "#875fff", "cterm": "99"},
   \ "br_cyan": {"gui": "#5fd7ff", "cterm": "81"},
   \ "br_white": {"gui": "#d7ffff", "cterm": "195"},
   \}
@@ -183,7 +183,7 @@ call s:highlight("CursorLineNr", {"bg": s:colors.br_black}) " Like LineNr when '
 call s:highlight("MatchParen", {"fg": s:colors.br_black, "bg": s:colors.br_cyan}) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:highlight("ModeMsg", {"fg": s:colors.blue}) " 'showmode' message (e.g., "-- INSERT --")
 call s:highlight("MoreMsg", {"fg": s:colors.green}) " more-prompt
-call s:highlight("Noise", {"fg": s:colors.cyan}) " unimportant syntax elements
+call s:highlight("Noise", {"fg": s:colors.magenta}) " unimportant syntax elements
 call s:highlight("NonText", {"fg": s:colors.br_black}) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
 call s:highlight("Normal", {"fg": s:colors.white}) " normal text
 call s:highlight("Pmenu", {"bg": s:colors.br_black}) " Popup menu: normal item.

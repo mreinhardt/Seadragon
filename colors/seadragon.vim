@@ -183,7 +183,7 @@ call s:highlight("CursorLineNr", {"bg": s:colors.br_black}) " Like LineNr when '
 call s:highlight("MatchParen", {"fg": s:colors.br_black, "bg": s:colors.br_cyan}) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:highlight("ModeMsg", {"fg": s:colors.blue}) " 'showmode' message (e.g., "-- INSERT --")
 call s:highlight("MoreMsg", {"fg": s:colors.green}) " more-prompt
-call s:highlight("Noise", {"fg": s:colors.magenta}) " unimportant syntax elements
+call s:highlight("Noise", {"fg": s:colors.cyan}) " unimportant syntax elements
 call s:highlight("NonText", {"fg": s:colors.br_black}) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
 call s:highlight("Normal", {"fg": s:colors.white}) " normal text
 call s:highlight("Pmenu", {"bg": s:colors.br_black}) " Popup menu: normal item.
